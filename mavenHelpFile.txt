@@ -1,0 +1,94 @@
+Help File for our group for working with MAVEN
+
+Starting up with Maven
+
+If you want to do anything with Maven and you're running gitBash, you will likely need to use the export command. 
+Export the address of your maven folder to be stored as a global variable.
+
+ 
+Use export PATH=$PATH:"..."
+inside the quotations put the path of you bin folder in the directory storing maven's files,
+
+for example I use the command.
+..
+export PATH=$PATH:"C:\Program Files\apache-maven-3.3.9\bin"
+
+
+
+Starting to work on with the bitbucket...
+
+If want to start working with our you'll need to clone the directory to your computer first.
+Use the command...
+git clone ssh://git@repo.gaul.csd.uwo.ca:7999/cs2212_w2016/team05.git 
+
+That should copy everything to your computer that's in the directory.
+
+
+
+What if changes were made since you cloned the directory to your computer?
+
+You'll want to use the git pull command.
+This will update your computer with any changes that have been made.
+
+
+
+What if you want to start working on stuff?
+
+What you need to do is go onto our JIRA page.
+Look for the issue/userstory/task that you want to work on.
+After finding it and click on it. Look for "development" and click on Create Branch.
+Make a "feature" branch, that branches off of DEV, or some other thing related to what you're working on.
+Now in git / gitBash you have to move to the branch that you just created. Then you can start working there.
+
+
+How do I move to a different branch?
+
+To move to a different branch use the command...
+git checkout (branch name)
+for example...
+git checkout feature/W162212T99-3-the-user-can-see-their-daily
+
+
+How do I see which branch I am on?
+
+type...
+git branch
+
+
+How do I see other branch names?
+
+Use the command
+git branch -a
+
+
+I finished working on something, what now?
+
+Make sure you are in the highest directory for the branch you are working in then...
+You should use the command...
+git add .
+This puts your changes in the staging area...
+Then use...
+git commit -m "A note for what changes you're making"
+Which sets the changes ready to be merged. Then use
+git push
+Which will merge changes to the branch in our bitbucket directory.
+
+
+My changes were added to a bitbucket branch, what now?
+
+We'll eventually want to merge all our changes to /DEV. Which is our main branch.
+You'll need to go to bitBucket and try to merge the changes.
+You'll need to get another group member to accept the merges to /DEV.
+
+
+I want to test stuff, what do I do?
+
+Make sure every file you need is in the java and resources folder.
+Go to the top of the directory and use the mvn command
+mvn package
+This will create an executable jar file that you'll be able to run using the command.
+
+java -jar target/...
+
+What comes after target depends on what .jar file was created after using "mvn package"
+Either way though, the file you are running will be in the target folder.
