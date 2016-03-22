@@ -24,7 +24,7 @@ public class FeaturePanel extends JPanel {
 		
 		//dailydata botton
 		JButton dailyDataBtn = new JButton("Daily data");
-		dailyDataBtn.setBounds(0, 0, 122, 30);
+		dailyDataBtn.setBounds(0, 0, 118, 30);
 		dailyDataBtn.setOpaque(false);
 		dailyDataBtn.setContentAreaFilled(true);
 		dailyDataBtn.setBorderPainted(false);
@@ -33,25 +33,16 @@ public class FeaturePanel extends JPanel {
 		
 		//goal botton
 		JButton goalsBtn = new JButton("Goals");
-		goalsBtn.setBounds(122, 0, 122, 30);
+		goalsBtn.setBounds(118, 0, 118, 30);
 		goalsBtn.setOpaque(false);
 		goalsBtn.setContentAreaFilled(true);
 		goalsBtn.setBorderPainted(false);
 		add(goalsBtn);
 		goalsBtn.setVisible(true);
 		
-		//heartrate botton
-		JButton heartRateBtn = new JButton("Heart rate");
-		heartRateBtn.setBounds(244, 0, 122, 30);
-		heartRateBtn.setOpaque(false);
-		heartRateBtn.setContentAreaFilled(true);
-		heartRateBtn.setBorderPainted(false);
-		add(heartRateBtn);
-		heartRateBtn.setVisible(true);
-		
 		//calories botton
 		JButton caloriesBtn = new JButton("Calories");
-		caloriesBtn.setBounds(366, 0, 122, 30);
+		caloriesBtn.setBounds(118*2, 0, 118, 30);
 		caloriesBtn.setOpaque(false);
 		caloriesBtn.setContentAreaFilled(true);
 		caloriesBtn.setBorderPainted(false);
@@ -60,7 +51,7 @@ public class FeaturePanel extends JPanel {
 		
 		//achievements botton
 		JButton achievementBtn = new JButton("Achievement");
-		achievementBtn.setBounds(122*4, 0, 122, 30);
+		achievementBtn.setBounds(118*3, 0, 118, 30);
 		achievementBtn.setOpaque(false);
 		achievementBtn.setContentAreaFilled(true);
 		achievementBtn.setBorderPainted(false);

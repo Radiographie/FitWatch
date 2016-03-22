@@ -30,82 +30,54 @@ public class BannerPanel extends JPanel {
 	}
 	
 	public void initialize(){
-		this.setSize(794, 90);
+		this.setSize(794, 120);
 		this.setLayout(null);
 		
 		//avatar label
 		JLabel avatarLabel = new JLabel("Avatar");
 		avatarLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		avatarLabel.setBounds(0, 0, 90, 90);
+		avatarLabel.setBounds(0, 0, 120, 120);
 		add(avatarLabel);
 		
-		//hello label
-		JLabel helloLabel = new JLabel("Welcome");
-		helloLabel.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		helloLabel.setHorizontalAlignment(SwingConstants.LEFT);
-		helloLabel.setBounds(100, 0, 160, 45);
-		add(helloLabel);
+		//welcome label
+		JLabel welcomeLabel = new JLabel("Welcome");
+		welcomeLabel.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		welcomeLabel.setHorizontalAlignment(SwingConstants.LEFT);
+		welcomeLabel.setBounds(130, 0, 160, 60);
+		add(welcomeLabel);
 		
 		//username label
 		JLabel userLabel = new JLabel();
 		userLabel.setText("username");
 		userLabel.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		userLabel.setHorizontalAlignment(SwingConstants.LEFT);
-		userLabel.setBounds(100, 45, 160, 45);
+		userLabel.setBounds(130, 60, 160, 60);
 		add(userLabel);
 		
 		
 		//sex label
 		JLabel sexLabel = new JLabel("Sex:");
-		sexLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		sexLabel.setBounds(270, 0, 45, 45);
+		sexLabel.setHorizontalAlignment(SwingConstants.LEFT);
+		sexLabel.setBounds(300, 0, 92, 60);
 		add(sexLabel);
-		
-		//sex display label
-		JLabel sexDisplayLabel = new JLabel();
-		sexDisplayLabel.setText("");
-		sexDisplayLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		sexDisplayLabel.setBounds(270+45, 0, 50, 45);
-		add(sexDisplayLabel);
 		
 		//age label
 		JLabel ageLabel = new JLabel("Age:");
-		ageLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		ageLabel.setBounds(270, 45, 45, 45);
+		ageLabel.setHorizontalAlignment(SwingConstants.LEFT);
+		ageLabel.setBounds(300, 60, 92, 60);
 		add(ageLabel);
-		
-		//age display label
-		JLabel ageDisplayLabel = new JLabel();
-		ageDisplayLabel.setText("");
-		ageDisplayLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		ageDisplayLabel.setBounds(270+45, 45, 50, 45);
-		add(ageDisplayLabel);
 		
 		//height label
 		JLabel heightLabel = new JLabel("Height:");
-		heightLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		heightLabel.setBounds(370, 0, 45, 45);
+		heightLabel.setHorizontalAlignment(SwingConstants.LEFT);
+		heightLabel.setBounds(402, 0, 82, 60);
 		add(heightLabel);
-		
-		//height display label
-		JLabel heightDisplayLabel = new JLabel();
-		heightDisplayLabel.setText("");
-		heightDisplayLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		heightDisplayLabel.setBounds(370+45, 0, 50, 45);
-		add(heightDisplayLabel);
 		
 		//weight label
 		JLabel weightLabel = new JLabel("Weight:");
-		weightLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		weightLabel.setBounds(370, 45, 45, 45);
+		weightLabel.setHorizontalAlignment(SwingConstants.LEFT);
+		weightLabel.setBounds(402, 60, 82, 60);
 		add(weightLabel);
-		
-		//height display label
-		JLabel weightDisplayLabel = new JLabel();
-		weightDisplayLabel.setText("");
-		weightDisplayLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		weightDisplayLabel.setBounds(370+45, 45, 50, 45);
-		add(weightDisplayLabel);
 		
 		//close botton
 		JButton closeBtn = new JButton("C");
@@ -114,7 +86,7 @@ public class BannerPanel extends JPanel {
 				System.exit(0);
 			}
 		});
-		closeBtn.setBounds(754, 30, 30, 30);
+		closeBtn.setBounds(754, 45, 30, 30);
 		closeBtn.setOpaque(false);
 		closeBtn.setContentAreaFilled(true);
 		closeBtn.setBorderPainted(false);
@@ -123,7 +95,7 @@ public class BannerPanel extends JPanel {
 		
 		//help botton
 		JButton helpBtn = new JButton("H");
-		helpBtn.setBounds(719, 30, 30, 30);
+		helpBtn.setBounds(719, 45, 30, 30);
 		helpBtn.setOpaque(false);
 		helpBtn.setContentAreaFilled(true);
 		helpBtn.setBorderPainted(false);
@@ -133,7 +105,7 @@ public class BannerPanel extends JPanel {
 		//last update display label
 		lastUpdateDisplayLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lastUpdateDisplayLabel.setText("");
-		lastUpdateDisplayLabel.setBounds (515, 50, 166, 25);
+		lastUpdateDisplayLabel.setBounds (500, 60, 191, 30);
 		add(lastUpdateDisplayLabel); 
 		
 		//refresh date botton
@@ -145,7 +117,7 @@ public class BannerPanel extends JPanel {
 				refreshDate(a);
 			}
 		});
-		refreshDateBtn.setBounds(624, 25, 57, 25);
+		refreshDateBtn.setBounds(609, 30, 82, 30);
 		refreshDateBtn.setOpaque(false);
 		refreshDateBtn.setContentAreaFilled(true);
 		refreshDateBtn.setBorderPainted(false);
@@ -159,7 +131,7 @@ public class BannerPanel extends JPanel {
 				System.out.println(c.get(Calendar.DAY_OF_MONTH));
 			}
 		});
-		dateChooser.setBounds(515, 25, 106, 25);
+		dateChooser.setBounds(500, 30, 106, 30);
 		add(dateChooser);
         }
 	
@@ -170,6 +142,6 @@ public class BannerPanel extends JPanel {
 		Calendar cal = Calendar.getInstance();
 		cal.getTime();
 		SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
-		lastUpdateDisplayLabel.setText(sdf.format(cal.getTime()));
+		lastUpdateDisplayLabel.setText("Last Update:"+"      "+sdf.format(cal.getTime()));
 	}
 }
