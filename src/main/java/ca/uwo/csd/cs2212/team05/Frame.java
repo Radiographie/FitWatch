@@ -1,12 +1,16 @@
 package ca.uwo.csd.cs2212.team05;
 
 import java.awt.EventQueue;
+import java.awt.Point;
 
 import javax.swing.JFrame;
 
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 
 public class Frame extends JFrame{
 
@@ -14,6 +18,7 @@ public class Frame extends JFrame{
 	private JFrame mainFrame;
 	private LoginPanel loginPanel;
 	private MainPanel mainPanel;
+	private static Point mouseDownCompCoords;
 	/**
 	 * Create the application.
 	 */
@@ -21,7 +26,6 @@ public class Frame extends JFrame{
 		this.currentPanelName = "";
 		this.loginPanel = new LoginPanel(this);
 		this.mainPanel = new MainPanel(this);
-		//mainFrame.setUndecorated(true);
 		initialize();
 	}
 
@@ -36,11 +40,35 @@ public class Frame extends JFrame{
 		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		mainFrame.setUndecorated(true);
 		
+		mainFrame.addMouseListener(new MouseListener(){
+            public void mouseReleased(MouseEvent e) {
+                mouseDownCompCoords = null;
+            }
+            public void mousePressed(MouseEvent e) {
+                mouseDownCompCoords = e.getPoint();
+            }
+            public void mouseExited(MouseEvent e) {
+            }
+            public void mouseEntered(MouseEvent e) {
+            }
+            public void mouseClicked(MouseEvent e) {
+            }
+        });
+
+		mainFrame.addMouseMotionListener(new MouseMotionListener(){
+            public void mouseMoved(MouseEvent e) {
+            }
+
+            public void mouseDragged(MouseEvent e) {
+                Point currCoords = e.getLocationOnScreen();
+                mainFrame.setLocation(currCoords.x - mouseDownCompCoords.x, currCoords.y - mouseDownCompCoords.y);
+            }
+        });
+		
 		this.currentPanelName = "LoginPanel";
 		frameSwitch();
 		this.setCurrentPanel(loginPanel.getPanelForward());
 		frameSwitch();
-		//mainFrame.setIconImage(image);
 		
 	}
 	

@@ -7,15 +7,12 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
 
-public class DailydataPanel extends JPanel {
-	/**
-	 * 
-	 */
-	
+public class DailyDataPanel extends JPanel {
+
 	/**
 	 * Create the panel.
 	 */
-	public DailydataPanel() {
+	public DailyDataPanel() {
 		setBackground(Color.PINK);
 		setLayout(null);
 		initialize();

@@ -105,7 +105,7 @@ public class BannerPanel extends JPanel {
 		//last update display label
 		lastUpdateDisplayLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lastUpdateDisplayLabel.setText("");
-		lastUpdateDisplayLabel.setBounds (500, 60, 191, 30);
+		lastUpdateDisplayLabel.setBounds (510, 79, 188, 30);
 		add(lastUpdateDisplayLabel); 
 		
 		//refresh date botton
@@ -117,7 +117,7 @@ public class BannerPanel extends JPanel {
 				refreshDate(a);
 			}
 		});
-		refreshDateBtn.setBounds(609, 30, 82, 30);
+		refreshDateBtn.setBounds(616, 46, 82, 30);
 		refreshDateBtn.setOpaque(false);
 		refreshDateBtn.setContentAreaFilled(true);
 		refreshDateBtn.setBorderPainted(false);
@@ -131,7 +131,7 @@ public class BannerPanel extends JPanel {
 				System.out.println(c.get(Calendar.DAY_OF_MONTH));
 			}
 		});
-		dateChooser.setBounds(500, 30, 106, 30);
+		dateChooser.setBounds(500, 45, 106, 30);
 		add(dateChooser);
         }
 	
