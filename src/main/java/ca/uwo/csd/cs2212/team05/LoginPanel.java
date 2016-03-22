@@ -62,12 +62,9 @@ public class LoginPanel extends JPanel {
 	
     private void loginActionPerformed(){                                      
         String username = usernameField.getText();
-		@SuppressWarnings("deprecation")
 		String password = passwordField.getText();
-		System.out.println(username);
-		System.out.println(password);
 
-        if(username.equals("admin")&&password.equals("pass")){
+        if(password.contains("")&&username.contains("")){
         	usernameField.setText("");
         	passwordField.setText("");
 			mainFrame.setCurrentPanel("DashBoardPanel");

@@ -6,9 +6,19 @@ import javax.swing.JPanel;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
+import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.awt.event.ActionEvent;
+import com.toedter.calendar.JDateChooser;
 
 public class BannerPanel extends JPanel {
-	
+	private String date;
+	JDateChooser dateChooser = new JDateChooser();
 	/**
 	 * Create the panel.
 	 */
@@ -28,38 +38,81 @@ public class BannerPanel extends JPanel {
 		avatarLabel.setBounds(0, 0, 90, 90);
 		add(avatarLabel);
 		
+		//hello label
+		JLabel helloLabel = new JLabel("Welcome");
+		helloLabel.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		helloLabel.setHorizontalAlignment(SwingConstants.LEFT);
+		helloLabel.setBounds(100, 0, 160, 45);
+		add(helloLabel);
+		
 		//username label
-		JLabel usernameLabel = new JLabel("Hello username");
-		usernameLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		usernameLabel.setBounds(90, 0, 120, 90);
-		add(usernameLabel);
+		JLabel userLabel = new JLabel();
+		userLabel.setText("username");
+		userLabel.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		userLabel.setHorizontalAlignment(SwingConstants.LEFT);
+		userLabel.setBounds(100, 45, 160, 45);
+		add(userLabel);
+		
 		
 		//sex label
-		JLabel sexLabel = new JLabel("Sex");
+		JLabel sexLabel = new JLabel("Sex:");
 		sexLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		sexLabel.setBounds(270, 0, 90, 45);
+		sexLabel.setBounds(270, 0, 45, 45);
 		add(sexLabel);
 		
+		//sex display label
+		JLabel sexDisplayLabel = new JLabel();
+		sexDisplayLabel.setText("");
+		sexDisplayLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		sexDisplayLabel.setBounds(270+45, 0, 50, 45);
+		add(sexDisplayLabel);
+		
 		//age label
-		JLabel ageLabel = new JLabel("Age");
+		JLabel ageLabel = new JLabel("Age:");
 		ageLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		ageLabel.setBounds(270, 45, 90, 45);
+		ageLabel.setBounds(270, 45, 45, 45);
 		add(ageLabel);
 		
+		//age display label
+		JLabel ageDisplayLabel = new JLabel();
+		ageDisplayLabel.setText("");
+		ageDisplayLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		ageDisplayLabel.setBounds(270+45, 45, 50, 45);
+		add(ageDisplayLabel);
+		
 		//height label
-		JLabel heightLabel = new JLabel("Height");
+		JLabel heightLabel = new JLabel("Height:");
 		heightLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		heightLabel.setBounds(370, 0, 90, 45);
+		heightLabel.setBounds(370, 0, 45, 45);
 		add(heightLabel);
 		
+		//height display label
+		JLabel heightDisplayLabel = new JLabel();
+		heightDisplayLabel.setText("");
+		heightDisplayLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		heightDisplayLabel.setBounds(370+45, 0, 50, 45);
+		add(heightDisplayLabel);
+		
 		//weight label
-		JLabel weightLabel = new JLabel("Weight");
+		JLabel weightLabel = new JLabel("Weight:");
 		weightLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		weightLabel.setBounds(370, 45, 90, 45);
+		weightLabel.setBounds(370, 45, 45, 45);
 		add(weightLabel);
+		
+		//height display label
+		JLabel weightDisplayLabel = new JLabel();
+		weightDisplayLabel.setText("");
+		weightDisplayLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		weightDisplayLabel.setBounds(370+45, 45, 50, 45);
+		add(weightDisplayLabel);
 		
 		//close botton
 		JButton closeBtn = new JButton("C");
+		closeBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+		});
 		closeBtn.setBounds(754, 30, 30, 30);
 		closeBtn.setOpaque(false);
 		closeBtn.setContentAreaFilled(true);
@@ -76,16 +129,36 @@ public class BannerPanel extends JPanel {
 		add(helpBtn);
 		closeBtn.setVisible(true);
 		
-		//refresh botton
-		JButton refreshBtn = new JButton("R");
-		refreshBtn.setBounds(684, 30, 30, 30);
-		refreshBtn.setOpaque(false);
-		refreshBtn.setContentAreaFilled(true);
-		refreshBtn.setBorderPainted(false);
-		add(refreshBtn);
-		refreshBtn.setVisible(true);
+		//refresh date botton
+		JButton refreshDateBtn = new JButton("R");
+		refreshDateBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent a) {
+				refreshDate(a);
+			}
+		});
+		refreshDateBtn.setBounds(624, 30, 30, 30);
+		refreshDateBtn.setOpaque(false);
+		refreshDateBtn.setContentAreaFilled(true);
+		refreshDateBtn.setBorderPainted(false);
+		add(refreshDateBtn);
+		refreshDateBtn.setVisible(true);
 	
-		
+		dateChooser.addPropertyChangeListener("day", new PropertyChangeListener() {
+			@Override
+			public void propertyChange(PropertyChangeEvent e) {
+				final Calendar c = (Calendar) e.getNewValue();   
+				System.out.println(c.get(Calendar.DAY_OF_MONTH));
+				//getChosenDate(c);
+				
+			}
+		});
+		dateChooser.setBounds(515, 30, 106, 30);
+		add(dateChooser);
+        }
+	
+	
+	public void refreshDate(ActionEvent a){
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		this.date = dateFormat.format(dateChooser.getDate());
 	}
-
 }

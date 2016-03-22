@@ -9,29 +9,22 @@ import javax.swing.SwingConstants;
 
 public class FeaturePanel extends JPanel {
 
-	private static final long serialVersionUID = 1L;
 	/**
 	 * Create the panel.
 	 */
 	public FeaturePanel() {
-		setBackground(Color.GREEN);
+		//setBackground(Color.GREEN);
 		setLayout(null);
 		initialize();
 		
 	}
 	public void initialize(){
-		this.setSize(794, 30);
+		this.setSize(610, 30);
 		this.setLayout(null);
-		
-		//all feature label
-		JLabel feature = new JLabel("Feature");
-		feature.setHorizontalAlignment(SwingConstants.CENTER);
-		feature.setBounds(0, 0, 182, 30);
-		add(feature);
 		
 		//dailydata botton
 		JButton dailyDataBtn = new JButton("Daily data");
-		dailyDataBtn.setBounds(182, 0, 122, 30);
+		dailyDataBtn.setBounds(0, 0, 122, 30);
 		dailyDataBtn.setOpaque(false);
 		dailyDataBtn.setContentAreaFilled(true);
 		dailyDataBtn.setBorderPainted(false);
@@ -40,7 +33,7 @@ public class FeaturePanel extends JPanel {
 		
 		//goal botton
 		JButton goalsBtn = new JButton("Goals");
-		goalsBtn.setBounds(182+122, 0, 122, 30);
+		goalsBtn.setBounds(122, 0, 122, 30);
 		goalsBtn.setOpaque(false);
 		goalsBtn.setContentAreaFilled(true);
 		goalsBtn.setBorderPainted(false);
@@ -49,7 +42,7 @@ public class FeaturePanel extends JPanel {
 		
 		//heartrate botton
 		JButton heartRateBtn = new JButton("Heart rate");
-		heartRateBtn.setBounds(182+122*2, 0, 122, 30);
+		heartRateBtn.setBounds(244, 0, 122, 30);
 		heartRateBtn.setOpaque(false);
 		heartRateBtn.setContentAreaFilled(true);
 		heartRateBtn.setBorderPainted(false);
@@ -58,7 +51,7 @@ public class FeaturePanel extends JPanel {
 		
 		//calories botton
 		JButton caloriesBtn = new JButton("Calories");
-		caloriesBtn.setBounds(182+122*3, 0, 122, 30);
+		caloriesBtn.setBounds(366, 0, 122, 30);
 		caloriesBtn.setOpaque(false);
 		caloriesBtn.setContentAreaFilled(true);
 		caloriesBtn.setBorderPainted(false);
@@ -67,7 +60,7 @@ public class FeaturePanel extends JPanel {
 		
 		//achievements botton
 		JButton achievementBtn = new JButton("Achievement");
-		achievementBtn.setBounds(182+122*4, 0, 122, 30);
+		achievementBtn.setBounds(122*4, 0, 122, 30);
 		achievementBtn.setOpaque(false);
 		achievementBtn.setContentAreaFilled(true);
 		achievementBtn.setBorderPainted(false);

@@ -19,17 +19,18 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 
 public class Data implements Serializable {
 
 		protected static final long serialVersionUID = 1L;
-		protected final DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		
 		protected String simpleDataFormat;
 		protected String path;
-
+		
+		/* Constructor sets all variables to inputs.
+		 * @param v, double representing the value to store
+		 * @param y, integer representing the year
+		 * @param m, integer representing the month
+		 * @param d, integer representing the day */
 		public Data(String simpleDataFormat){
 			this.simpleDataFormat = simpleDataFormat;
 			this.path = setPath();

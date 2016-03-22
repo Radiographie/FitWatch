@@ -292,10 +292,12 @@ public class Request implements Serializable {
 
 
 	// comment this main out if you aren't testing
+
 	public static void main( String[] args )
     {
 		Request req = new Request();
 		req.storeLifeLongActivities();
 		req.storeDailyActivity("2016-2-27");
+		
     }//end main 
 }

@@ -1,10 +1,11 @@
 package ca.uwo.csd.cs2212.team05;
 
+import java.awt.Color;
+
 import javax.swing.JPanel;
 
 public class MainPanel extends JPanel {
 
-	private static final long serialVersionUID = -3254396276834789802L;
 	private Frame mainFrame;
 	
 	/**
@@ -12,32 +13,30 @@ public class MainPanel extends JPanel {
 	 */
 	public MainPanel(Frame mainFrame) {
 		this.setMainFrame(mainFrame);
-		this.setSize(800, 600);
+		this.setSize(800, 570);
 		this.setLayout(null);
-		
+		this.setBackground(Color.BLACK);
 		initialize();
 	}
 	
 	public void initialize(){
 		//add left panel
-		JPanel leftPanel = new LeftPanel();
-		leftPanel.setLocation(0, 120);
+		JPanel leftPanel = new LeftPanel(mainFrame);
+		leftPanel.setSize(182, 482);
+		leftPanel.setLocation(0, 91);
 		add(leftPanel);
 		
 		//add banner panel
 		JPanel bannerPanel = new BannerPanel();
+		bannerPanel.setSize(800, 90);
 		bannerPanel.setLocation(0, 0);
 		add(bannerPanel);
 		
-		//add feature panel
-		JPanel featurePanel = new FeaturePanel();
-		featurePanel.setLocation(0, 90);
-		add(featurePanel);
-		
 		//add content panel
-		JPanel contentPanel = new ContentPanel();
-		contentPanel.setLocation(184, 120);
-		add(contentPanel);
+		JPanel rightPanel = new RightPanel();
+		rightPanel.setSize(616, 482);
+		rightPanel.setLocation(184, 91);
+		add(rightPanel);
 	}
 
 	public Frame getMainFrame() {

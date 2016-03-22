@@ -1,9 +1,13 @@
 package ca.uwo.csd.cs2212.team05;
 
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.Serializable;
 
 import org.json.JSONException;
+import org.json.JSONObject;
+import org.json.JSONTokener;
 
 public class CalorieData extends Data implements Serializable{
 	
@@ -77,9 +81,14 @@ public class CalorieData extends Data implements Serializable{
 			this.setCalorisBalance(calorieData.getCalorisBalance());
 		}
 		else{			
-			DataParser dParser = new DataParser(this.getSimpleDataFormat());
-			this.setCalorisBurned(dParser.getDailyCalorie());
-			dParser.close();
+			ObjectInputStream in = new ObjectInputStream(new FileInputStream("src/main/resources/apiData/activities" + simpleDataFormat + ".json"));
+			JSONTokener tokener = new JSONTokener((String)in.readObject());
+			JSONObject temp = new JSONObject(tokener);
+			
+			String calor = temp.getJSONObject("summary").getString("caloriesOut");
+			this.setCalorisBurned (Double.parseDouble(calor));
+			
+			in.close();
 		}
 
 	}

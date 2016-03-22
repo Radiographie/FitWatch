@@ -1,12 +1,14 @@
 package ca.uwo.csd.cs2212.team05;
 
-import java.awt.Dimension;
 import java.awt.EventQueue;
-import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 
-public class Frame {
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Toolkit;
+
+public class Frame extends JFrame{
 
 	private String currentPanelName;
 	private JFrame mainFrame;
@@ -36,6 +38,8 @@ public class Frame {
 		frameSwitch();
 		this.setCurrentPanel(loginPanel.getPanelForward());
 		frameSwitch();
+		//mainFrame.setIconImage(image);
+		
 	}
 	
 	public static void centreWindow(JFrame frame) {
@@ -72,7 +76,7 @@ public class Frame {
 	}
 	
 	
-	////////////////////����а��ķָ��ߣ�P������ϱ�///////////////////////////////////////////////
+	////////////////////锟斤拷锟斤拷邪锟斤拷姆指锟斤拷撸锟絇锟斤拷锟斤拷锟斤拷媳锟�///////////////////////////////////////////////
 	/**
 	 * Launch the application.
 	 */
