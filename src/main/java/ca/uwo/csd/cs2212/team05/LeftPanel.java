@@ -27,7 +27,6 @@ public class LeftPanel extends JPanel {
 	private final JScrollPane scrollPane = new JScrollPane();
 	private Frame mainFrame;
 	private ArrayList<String> messageList = new ArrayList<String>();
-	private JLabel lastUpdateDisplayLabel = new JLabel();
 	/**
 	 * Create the panel.
 	 */
@@ -46,34 +45,26 @@ public class LeftPanel extends JPanel {
 
 		
 		//switch user botton
-		JButton refreshBtn = new JButton("Refresh");	
-		refreshBtn.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent evt) {
-				lastUpdateRefresh(evt);
-			}
-		});
-		
-		refreshBtn.setBounds(0, 452, 182, 30);
-		refreshBtn.setOpaque(false);
-		refreshBtn.setContentAreaFilled(true);
-		refreshBtn.setBorderPainted(false);
-		add(refreshBtn);
-		refreshBtn.setVisible(true);
+//		JButton refreshBtn = new JButton("Refresh");	
+//		refreshBtn.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent evt) {
+//				lastUpdateRefresh(evt);
+//			}
+//		});
+//		
+//		refreshBtn.setBounds(0, 452, 182, 30);
+//		refreshBtn.setOpaque(false);
+//		refreshBtn.setContentAreaFilled(true);
+//		refreshBtn.setBorderPainted(false);
+//		add(refreshBtn);
+//		refreshBtn.setVisible(true);
 		
 		//last update label
-		JLabel lastUpdateLabel = new JLabel("Last Update:");
-		lastUpdateLabel.setBounds(2, 421, 82, 30);
-		add(lastUpdateLabel);
+//		JLabel lastUpdateLabel = new JLabel("Last Update:");
+//		lastUpdateLabel.setBounds(2, 421, 82, 30);
+//		add(lastUpdateLabel);
 		
-		//last update display label
-
-		lastUpdateDisplayLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		
-		lastUpdateDisplayLabel.setText("");
-		lastUpdateDisplayLabel.setBounds (84, 421, 96, 30);
-		add(lastUpdateDisplayLabel); 
-		
-		scrollPane.setBounds(0, 15, 182, 400);
+		scrollPane.setBounds(0, 32, 182, 450);
 		add(scrollPane);		
 
 		add("Yooooooooo");
@@ -114,12 +105,12 @@ public class LeftPanel extends JPanel {
 		mainFrame.pack();
 	}
 	
-	private void lastUpdateRefresh(ActionEvent evt)
-	{
-		//display time
-		Calendar cal = Calendar.getInstance();
-		cal.getTime();
-		SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
-		lastUpdateDisplayLabel.setText(sdf.format(cal.getTime()));
-	}
+//	private void lastUpdateRefresh(ActionEvent evt)
+//	{
+//		//display time
+//		Calendar cal = Calendar.getInstance();
+//		cal.getTime();
+//		SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+//		lastUpdateDisplayLabel.setText(sdf.format(cal.getTime()));
+//	}
 }

@@ -21,6 +21,7 @@ public class Frame extends JFrame{
 		this.currentPanelName = "";
 		this.loginPanel = new LoginPanel(this);
 		this.mainPanel = new MainPanel(this);
+		//mainFrame.setUndecorated(true);
 		initialize();
 	}
 
@@ -33,6 +34,7 @@ public class Frame extends JFrame{
 		centreWindow(this.mainFrame);
 		mainFrame.setResizable(false);
 		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		mainFrame.setUndecorated(true);
 		
 		this.currentPanelName = "LoginPanel";
 		frameSwitch();
@@ -63,9 +65,7 @@ public class Frame extends JFrame{
 				this.loginPanel.setVisible(false);
 			}break;
 		}
-		
 	}
-	
 	
 	public String getCurrentPanel() {
 		return currentPanelName;
@@ -76,7 +76,7 @@ public class Frame extends JFrame{
 	}
 	
 	
-	////////////////////锟斤拷锟斤拷邪锟斤拷姆指锟斤拷撸锟絇锟斤拷锟斤拷锟斤拷媳锟�///////////////////////////////////////////////
+	////////////////////啊啊啊啊我不要进逼淋淋快点保佑我靴靴！我一定会买130张幺蛾子的/////////////////////////////////
 	/**
 	 * Launch the application.
 	 */

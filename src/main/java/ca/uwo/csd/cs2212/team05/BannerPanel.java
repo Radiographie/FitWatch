@@ -19,6 +19,7 @@ import com.toedter.calendar.JDateChooser;
 public class BannerPanel extends JPanel {
 	private String date;
 	JDateChooser dateChooser = new JDateChooser();
+	private JLabel lastUpdateDisplayLabel = new JLabel();
 	/**
 	 * Create the panel.
 	 */
@@ -129,14 +130,22 @@ public class BannerPanel extends JPanel {
 		add(helpBtn);
 		closeBtn.setVisible(true);
 		
+		//last update display label
+		lastUpdateDisplayLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lastUpdateDisplayLabel.setText("");
+		lastUpdateDisplayLabel.setBounds (515, 50, 166, 25);
+		add(lastUpdateDisplayLabel); 
+		
 		//refresh date botton
-		JButton refreshDateBtn = new JButton("R");
+		JButton refreshDateBtn = new JButton("Refresh Date");
+		refreshDateBtn.setFont(new Font("Tahoma", Font.PLAIN, 8));
+		refreshDateBtn.setHorizontalAlignment(SwingConstants.LEFT);
 		refreshDateBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent a) {
 				refreshDate(a);
 			}
 		});
-		refreshDateBtn.setBounds(624, 30, 30, 30);
+		refreshDateBtn.setBounds(624, 25, 57, 25);
 		refreshDateBtn.setOpaque(false);
 		refreshDateBtn.setContentAreaFilled(true);
 		refreshDateBtn.setBorderPainted(false);
@@ -148,11 +157,9 @@ public class BannerPanel extends JPanel {
 			public void propertyChange(PropertyChangeEvent e) {
 				final Calendar c = (Calendar) e.getNewValue();   
 				System.out.println(c.get(Calendar.DAY_OF_MONTH));
-				//getChosenDate(c);
-				
 			}
 		});
-		dateChooser.setBounds(515, 30, 106, 30);
+		dateChooser.setBounds(515, 25, 106, 25);
 		add(dateChooser);
         }
 	
@@ -160,5 +167,9 @@ public class BannerPanel extends JPanel {
 	public void refreshDate(ActionEvent a){
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		this.date = dateFormat.format(dateChooser.getDate());
+		Calendar cal = Calendar.getInstance();
+		cal.getTime();
+		SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+		lastUpdateDisplayLabel.setText(sdf.format(cal.getTime()));
 	}
 }
